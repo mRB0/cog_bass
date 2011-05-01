@@ -1,0 +1,10 @@
+To use:
+
+Uninstall the Dumb bundle from Cog first:
+
+	rm -fr /Applications/Cog.app/Contents/PlugIns/Dumb.bundle/
+
+Then compile and install the cog_bass bundle:
+
+	cp -r build/Release/cog_bass.bundle /Applications/Cog.app/Contents/PlugIns/
+

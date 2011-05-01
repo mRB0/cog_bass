@@ -19,7 +19,6 @@ static NSDictionary *BASSErrorCodes;
 
 @interface BassDecoder ()
 @property (nonatomic, retain) id<CogSource> source;
-@property (nonatomic, assign, readonly, getter=isBassInitialized) BOOL bassInitialized;
 @end
 
 @implementation BassDecoder
@@ -82,8 +81,7 @@ static NSDictionary *BASSErrorCodes;
             [NSNumber numberWithDouble:((length / 65.536f)*44.1000)], @"totalFrames",
             [NSNumber numberWithInt:16], @"bitsPerSample", //Samples are short
             [NSNumber numberWithInt:2], @"channels", //output from gme_play is in stereo
-//            [NSNumber numberWithBool:[source seekable]], @"seekable",
-            [NSNumber numberWithBool:NO], @"seekable",
+            [NSNumber numberWithBool:[source seekable]], @"seekable",
             @"host", @"endian",
             nil];
 }
@@ -100,11 +98,17 @@ static NSDictionary *BASSErrorCodes;
     return [NSArray arrayWithObjects:@"mo3", @"it", @"xm", @"s3m", @"mtm", @"mod", @"umx", nil];
 }
 
-- (int)readAudio:(void *)buffer frames:(UInt32)frames {
+- (int)bytesPerFrame {
     int mult = 1;
     
     mult *= [[[self properties] objectForKey:@"bitsPerSample"] intValue] / 8;
     mult *= [[[self properties] objectForKey:@"channels"] intValue];
+    
+    return mult;
+}
+
+- (int)readAudio:(void *)buffer frames:(UInt32)frames {
+    int mult = [self bytesPerFrame];
     
     DWORD readLen = frames * mult;
     int totalRead = 0;
@@ -169,7 +173,7 @@ static NSDictionary *BASSErrorCodes;
         return NO;
     }
     
-    length = BASS_ChannelGetLength(chan, BASS_POS_BYTE);
+    length = BASS_ChannelGetLength(chan, BASS_POS_BYTE) / [self bytesPerFrame];
     
 	[self willChangeValueForKey:@"properties"];
 	[self didChangeValueForKey:@"properties"];
@@ -178,12 +182,11 @@ static NSDictionary *BASSErrorCodes;
 }
 
 - (long)seek:(long)frame {
-    return 0;
+    BASS_ChannelSetPosition(chan, frame * [self bytesPerFrame], BASS_POS_BYTE);
+    return BASS_ChannelGetPosition(chan, BASS_POS_BYTE) / [self bytesPerFrame];
 }
 
 - (void)close {
-    //BASS_Free();
-    
     [self cleanUp];
     self.source = nil;
 }

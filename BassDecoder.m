@@ -173,7 +173,7 @@ static NSDictionary *BASSErrorCodes;
         return NO;
     }
     
-    length = BASS_ChannelGetLength(chan, BASS_POS_BYTE) / [self bytesPerFrame];
+    length = BASS_ChannelGetLength(chan, BASS_POS_BYTE) / [self bytesPerFrame] * 1.5; // ??? why do I need to multiply?
     
 	[self willChangeValueForKey:@"properties"];
 	[self didChangeValueForKey:@"properties"];
@@ -182,7 +182,7 @@ static NSDictionary *BASSErrorCodes;
 }
 
 - (long)seek:(long)frame {
-    BASS_ChannelSetPosition(chan, frame * [self bytesPerFrame], BASS_POS_BYTE);
+    BASS_ChannelSetPosition(chan, frame * [self bytesPerFrame], BASS_POS_BYTE | BASS_POS_DECODETO);
     return BASS_ChannelGetPosition(chan, BASS_POS_BYTE) / [self bytesPerFrame];
 }
 

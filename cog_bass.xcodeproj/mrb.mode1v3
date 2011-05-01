@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -271,14 +273,11 @@
 								<string>2AB4D2DE136DD14D00593924</string>
 								<string>2AB4D399136DE44B00593924</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>2AB4D46C136DEA1100593924</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
-									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -313,14 +312,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BassDecoder.m</string>
+								<string>Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,22 +325,21 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>BassDecoder.m</string>
+										<string>Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2AB4D541136DF6AD00593924</string>
+										<string>2AC4E080136E0172001FE55A</string>
 										<key>history</key>
 										<array>
-											<string>2AB4D35C136DE1AB00593924</string>
 											<string>2AB4D38B136DE31300593924</string>
 											<string>2AB4D3E4136DE5F200593924</string>
 											<string>2AB4D429136DE8AB00593924</string>
-											<string>2AB4D42A136DE8AB00593924</string>
 											<string>2AB4D4FE136DF13400593924</string>
 											<string>2AB4D4FF136DF13400593924</string>
 											<string>2AB4D52A136DF39300593924</string>
-											<string>2AB4D52B136DF39300593924</string>
+											<string>2AC4E07E136E0172001FE55A</string>
+											<string>2AC4E07F136E0172001FE55A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -401,9 +397,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2AB4D472136DEA2500593924</string>
+				<string>2AC4E081136E0172001FE55A</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2AB4D473136DEA2500593924</string>
+				<string>2AC4E082136E0172001FE55A</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -541,7 +537,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>2AB4D2D9136DD11800593924</string>
 		<string>/Users/mrb/code/cog_bass/cog_bass.xcodeproj</string>
 	</array>
@@ -623,7 +618,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2AB4D2D9136DD11800593924</string>
-				<string>2AB4D474136DEA2500593924</string>
+				<string>2AC4E083136E0172001FE55A</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
